@@ -33,7 +33,7 @@
                     <h2 class="header-title">Teleg<span class="header-podtitle">ON</span></h2>
                 </a>
                 <div style="display: flex; align-items: center; justify-content: center">
-                    <a href="#" class="header-element">
+                    <a href="{% url "main_page" %}" class="header-element">
                         <img src="{% static "images/services.png" %}" style="width: 20px; height: 20px;">
                         <p class="header-element-title">Услуги</p>
                     </a>
@@ -52,13 +52,16 @@
             </div>
         </div>
     </header>
+    <hr style=" margin-top: 0;">
     <main class="main-content">
         {% block content %}
         {% endblock content %}
     </main>
     <footer>
         <div class="container">
-
+            <div class="footer-content">
+                <p class="footer-text">2022-2023 © TelegON. Все права защищены</p>
+            </div>
         </div>
     </footer>
 </body>

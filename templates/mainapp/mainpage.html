@@ -3,4 +3,59 @@
 {% block title %}Главная{% endblock title %}
 
 {% block content %}
+    <div class="my-container">
+        <div class="row">
+            <div class="col-lg-4 col-12">
+                <h2 class="title-services">Категории</h2>
+                <div class="categories-list">
+                    {% for category in categories %}
+                        <a href="#" class="categories-list-element">
+                            <img src="{{ category.img.url }}" style="width: 30px; height: 30px; margin-right: 15px;">
+                            <p>{{ category.title }}</p>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-8 col-12">
+                <h2 class="title-services">Услуги</h2>
+                <div class="services-wrapper">
+                    {% for service in services %}
+                        <div class="card-list">
+	<article class="my-card">
+	<figure class="my-card-image">
+		<img src="{{ service.img.url }}" alt="An orange painted blue, cut in half laying on a blue background" />
+	</figure>
+	<div class="my-card-header">
+		<a href="#">{{ service.title }}</a>
+	</div>
+	<div class="my-card-footer">
+        <div style="display: flex">
+		<div class="card-meta card-meta--views">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" display="block" id="EyeOpen">
+				<path d="M21.257 10.962c.474.62.474 1.457 0 2.076C19.764 14.987 16.182 19 12 19c-4.182 0-7.764-4.013-9.257-5.962a1.692 1.692 0 0 1 0-2.076C4.236 9.013 7.818 5 12 5c4.182 0 7.764 4.013 9.257 5.962z" />
+				<circle cx="12" cy="12" r="3" />
+			</svg>
+			{{ service.quantity }}
+		</div>
+		<div class="card-meta card-meta--date">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" display="block" id="Calendar">
+				<rect x="2" y="4" width="20" height="18" rx="4" />
+				<path d="M8 2v4" />
+				<path d="M16 2v4" />
+				<path d="M2 10h20" />
+			</svg>
+			{{ service.warranty }}
+		</div>
+        </div>
+        <div class="category-card">
+            {{ service.category.name }}
+        </div>
+	</div>
+</article>
+</div>
+                     {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
