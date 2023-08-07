@@ -58,8 +58,8 @@ body {
     font-family: "Lexend", sans-serif;
     font-size: 20px;
     font-weight: 500;
-    color: #2b2b2b;
-    background: #f8fbfe;
+    color: #3a3a3a;
+    background: #f0f3f6;
 }
 
 @media (max-width: 440px) {
@@ -108,10 +108,37 @@ header {
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     justify-content: space-between;
     border: 0;
+}
+
+.my-header-mobile {
+    display: none;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 0;
+    justify-content: space-between;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+@media (max-width: 680px) {
+    .my-header-mobile {
+        display: flex;
+    }
+    .my-header {
+        display: none;
+    }
+}
+
+.header-element-mobile {
+    font-size: 18px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 
 .header-element {
@@ -205,6 +232,14 @@ footer {
     padding-right: 130px;
     padding-top: 25px;
     padding-bottom: 25px;
+    margin-top: 15px;
+}
+
+@media (max-width: 680px) {
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 .footer-content {
@@ -221,34 +256,45 @@ footer {
     width: 100%;
     background-color: white;
     border-radius: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
     display: flex;
     flex-direction: column;
-    padding-top: 5px;
     margin-top: 25px;
+}
+
+@media (max-width: 680px) {
+    .categories-list {
+        margin-top: 25px!important;
+    }
 }
 
 .title-services {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    color: #4d5974;
+}
+
+@media (max-width: 680px) {
+    .title-services {
+        margin-top: 15px;
+    }
 }
 
 .categories-list-element {
     display: flex;
     font-size: 16px;
-    font-weight: bold;
+    padding-left: 30px;
     flex-direction: row;
     padding-top: 20px;
     align-items: center;
     padding-bottom: 20px;
+    color: #5d5d5d;
+    font-weight: 600;
 }
 
 .services-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 25px;
 }
 
 figure, article {
@@ -257,12 +303,24 @@ figure, article {
 
 .card-list {
 	width: 90%;
-	max-width: 400px;
+	max-width: 340px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+@media (max-width: 680px) {
+    .card-list {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 20px!important;
+    }
 }
 
 .card-list img {
-    max-width: 100%;
     display: block;
+    object-fit: cover;
+    width: 345px;
+    height: 270px;
 }
 
 .my-card {
@@ -381,4 +439,234 @@ figure, article {
     padding: 7px;
     background-color: #f8fbfe;
     font-size: 11px;
+}
+
+.categories-list-element:hover {
+    background-color: #e0e2e0;
+}
+
+.categories-list-element--active {
+    background-color: #e0e2e0;
+}
+
+.faq-title {
+    color: #4d5974;
+    text-align: center;
+    font-size: 27px;
+}
+
+@media (max-width: 680px) {
+
+}
+
+.accordion {
+    margin-top: 40px;
+}
+
+.accordion a {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 3rem 3rem 1rem;
+  color: #7288a2;
+  font-size: 1.7rem;
+  font-weight: 400;
+  border-bottom: 1px solid #e5e5e5;
+}
+.accordion a:hover,
+.accordion a:hover::after {
+  cursor: pointer;
+  color: #ff5353;
+}
+.accordion a:hover::after {
+  border: 1px solid #ff5353;
+}
+.accordion a.active {
+  color: #ff5353;
+  border-bottom: 1px solid #ff5353;
+}
+.accordion a::after {
+  content: "+";
+  position: absolute;
+  float: right;
+  right: 1rem;
+  font-size: 1.8rem;
+  color: #7288a2;
+  padding: 5px;
+  padding-top: 0;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 1px solid #7288a2;
+  text-align: center;
+}
+.accordion a.active::after {
+  content: '-';
+  color: #ff5353;
+  border: 1px solid #ff5353;
+}
+.accordion .content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  clear: both;
+  -webkit-transition: all 0.2s ease 0.15s;
+  -o-transition: all 0.2s ease 0.15s;
+  transition: all 0.2s ease 0.15s;
+}
+.accordion .content p {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.accordion .content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+  -webkit-transition: all 0.35s ease 0.15s;
+  -o-transition: all 0.35s ease 0.15s;
+  transition: all 0.35s ease 0.15s;
+}
+
+.articles-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.card {
+    background-color: #ffffff;
+    box-shadow: 0 8px 23px rgba(159,159,159,0.12);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: .3s;
+    border: 1px solid #F1F1F1;
+}
+
+.card.card-covered {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    justify-content: end;
+    height: 100%;
+}
+
+.card.card-covered.article-card {
+    height: 350px;
+    background-position: center top;
+}
+
+.card .card-body {
+    padding: 15px;
+    text-decoration: none;
+    color: inherit;
+    flex: 1 1 auto;
+    border-radius: inherit;
+    position: relative;
+}
+
+.card a.card-body {
+    position: relative;
+}
+
+.card.card-covered .card-body {
+    padding: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.card a.card-body-article::before, .card.disabled .card-body::before {
+    content: ' ';
+    border-radius: inherit;
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+
+.card a.card-body-::before, .card a.card-body:after {
+    opacity: 0;
+}
+
+.card a.card-body::before, .card a.card-body:after {
+    opacity: 0;
+}
+
+.card.card-covered .card-body .card-covered-content {
+    background-color: rgba(0,0,0,0.6);
+    padding: calc(20px / 2) 20px;
+    color: #ffffff;
+    border-radius: 0 0 15px 15px;
+    margin-top: auto;
+}
+
+.truncate {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.truncate.truncate-1 {
+    -webkit-line-clamp: 1;
+}
+
+.truncate.truncate-2 {
+    -webkit-line-clamp: 2;
+}
+
+.service-content {
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+}
+
+.service-content-title {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.service-content-text {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.btn-telegram-service {
+    background: linear-gradient(to right, #00d2ff, #3a7bd5);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    margin-top: 30px;
+    text-transform: uppercase;
+    display: block!important;
+}
+
+.btn-telegram-service:hover {
+    color: white!important;
 }

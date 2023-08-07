@@ -9,7 +9,7 @@
                 <h2 class="title-services">Категории</h2>
                 <div class="categories-list">
                     {% for category in categories %}
-                        <a href="#" class="categories-list-element">
+                        <a href="{% url "category_view" id=category.id %}" class="categories-list-element">
                             <img src="{{ category.img.url }}" style="width: 30px; height: 30px; margin-right: 15px;">
                             <p>{{ category.title }}</p>
                         </a>
@@ -23,10 +23,10 @@
                         <div class="card-list">
 	<article class="my-card">
 	<figure class="my-card-image">
-		<img src="{{ service.img.url }}" alt="An orange painted blue, cut in half laying on a blue background" />
+        <a href="{% url 'service_view' id=service.id %}"><img src="{{ service.img.url }}" alt="An orange painted blue, cut in half laying on a blue background" /></a>
 	</figure>
 	<div class="my-card-header">
-		<a href="#">{{ service.title }}</a>
+		<a href="{% url 'service_view' id=service.id %}">{{ service.title }}</a>
 	</div>
 	<div class="my-card-footer">
         <div style="display: flex">
@@ -48,7 +48,7 @@
 		</div>
         </div>
         <div class="category-card">
-            {{ service.category.name }}
+            {{ service.category.title }}
         </div>
 	</div>
 </article>

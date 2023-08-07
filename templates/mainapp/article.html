@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ article.title }}{% endblock title %}
+
+{% block content %}
+    <div class="my-container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="service-content">
+                    <h3 class="service-content-title">{{ article.title }}</h3>
+                    <div class="service-content-text">
+                        {{ article.description|safe }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                {% if rec_article %}
+                <div class="card-list" style="width: 100%; margin-left: 0; margin-top: 0;">
+	<article class="my-card">
+	<figure class="my-card-image">
+        <a href="{% url 'article' id=rec_article.id %}"><img src="{{ rec_article.img.url }}" alt="An orange painted blue, cut in half laying on a blue background" /></a>
+	</figure>
+	<div class="my-card-header">
+		<a href="{% url 'article' id=rec_article.id %}">{{ rec_article.title }}</a>
+	</div>
+</article>
+</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
